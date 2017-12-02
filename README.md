@@ -1,1 +1,1 @@
-# common error I faced.
+# common errors and hints
