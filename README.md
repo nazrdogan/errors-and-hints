@@ -1,1 +1,1 @@
-# common errors and hints
+# Common errors and hints
