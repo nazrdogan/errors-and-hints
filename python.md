@@ -5,7 +5,7 @@
 
 VSCode -> Preferences -> Settings -> scroll down to Python Configuration.
 
-"python.pythonPath": "python3.6"
+ "python.pythonPath": "/usr/local/bin/python3",
 
 ```
 
