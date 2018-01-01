@@ -30,3 +30,30 @@ LoginScreen = reduxForm({ form: "login", enableReinitialize: true })(
 
 ***
 
+
+React- Navigation custom right button action.
+
+```
+class MyScreen extends React.Component {
+    static navigationOptions = {
+        header: ({ state }) => ({
+            right: <Button title={"Save"} onPress={state.params.handleSave} />
+        })
+    };
+
+    saveDetails() {
+        alert('Save Details');
+    }
+
+    componentDidMount() {
+      this.props.navigation.setParams({ handleSave: this.saveDetails });
+    }
+
+    render() {
+        return (
+            <View />
+        );
+    }
+}
+
+```
