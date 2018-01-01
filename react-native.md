@@ -34,26 +34,42 @@ LoginScreen = reduxForm({ form: "login", enableReinitialize: true })(
 React- Navigation custom right button action.
 
 ```
-class MyScreen extends React.Component {
-    static navigationOptions = {
-        header: ({ state }) => ({
-            right: <Button title={"Save"} onPress={state.params.handleSave} />
-        })
-    };
-
-    saveDetails() {
-        alert('Save Details');
+static navigationOptions = ({ navigation }) => {
+    const { state, setParams } = navigation;
+    const { params = {} } = navigation.state;
+    return {
+      tabBarLabel: "Profil",
+      headerTitle: (<Text style={{ fontFamily: themefontFamily }}>Profilim</Text>),
+      tabBarIcon: ({ tintColor }) => (
+        <MaterialCommunityIcons
+          name="account"
+          style={[styles.icon, { color: tintColor }]}
+        />
+      ),
+      headerRight: (
+        <MaterialCommunityIcons
+          name="logout-variant"
+          onPress={params.handleSave ? params.handleSave : () => null}
+          style={{
+            width: 26,
+            fontSize: 26,
+            marginRight: 5,
+            height: 26
+          }}
+        />
+      ),
     }
+  };
 
-    componentDidMount() {
-      this.props.navigation.setParams({ handleSave: this.saveDetails });
-    }
 
-    render() {
-        return (
-            <View />
-        );
-    }
-}
+  _handleSave = () => {
+    alert("Handle");
+  }
+
+  componentDidMount() {
+    // We can only set the function after the component has been initialized
+    this.props.navigation.setParams({ handleSave: this._handleSave });
+  }
+
 
 ```
