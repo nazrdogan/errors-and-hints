@@ -16,6 +16,9 @@
       "doc":"This is the primary ID used to identify a contact"
     },
 ```
+
+
+https://github.com/strongloop/loopback/issues/274
   
     
    
