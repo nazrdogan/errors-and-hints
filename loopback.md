@@ -18,6 +18,8 @@
 ```
 
 
+### ID values incorrectly stored as plain strings in relation tables for mongodb 
+
 https://github.com/strongloop/loopback/issues/274
   
     
