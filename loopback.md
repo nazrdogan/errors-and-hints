@@ -21,12 +21,22 @@
 ### ID values incorrectly stored as plain strings in relation tables for mongodb 
 
 https://github.com/strongloop/loopback/issues/274#issuecomment-182077347  
-    
-   
 
-     
-   
     
+### Loopback before save 
 
-    
+```
+
+Product.observe('before save', function setAutoData(context, next) {
+		if (context.instance) {
+			if (context.isNewInstance) {
+				context.instance.created = Date.now();
+				context.instance.ownerId = context.options.accessToken.userId;
+			}
+			context.instance.modified = Date.now();
+		}
+		next();
+	});
+      
+```      
     
